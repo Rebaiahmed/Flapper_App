@@ -1,0 +1,56 @@
+
+<div ng-controller="MainCtrl">
+
+
+
+
+
+
+    <div ng-repeat="p in posts | orderBy:'upvotes'">
+<span class="glyphicon glyphicon-thumbs-up"
+      ng-click="incrementUpvotes(p)"></span>
+    {{p.upvotes}}
+
+
+
+        <span style="font-size:20px; margin-left:10px;">
+          <a ng-show="p.link" href="{{p.link}}">
+              {{p.title}}
+          </a>
+
+
+          <span ng-hide="p.link">
+            {{p.title}}
+          </span>
+
+
+
+
+        </span>
+
+                  <span>
+  <a ui-sref="posts({id: p.idPost})" >Comments</a>
+</span>
+
+</div>
+
+<form ng-submit="addPost(post)" style="margin-top: 30px">
+
+
+    <div class="form-group">
+        <input class="form-control" type="text" ng-model="post.title" placeholder="Title">
+
+    </div>
+    <div class="form-group">
+        <input type="text" placeholder="Link" ng-model="post.link" class="form-control" >
+    </div>
+
+    <button class="btn btn-primary" type="submit">Post</button>
+</form>
+
+
+
+
+
+
+</div>

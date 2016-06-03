@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <title>Flapper App</title>
 
+    <link rel="stylesheet" href="/client/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/client/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/client/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src ="/client/bower_components/angular/angular.min.js"></script>
+    <script src="/client/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 </head>
-<body ng-controller="MainCtrl">
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
 
-<h1>hello</h1>
+
+
+    <div class="page-header">
+<h1>Flapper news </h1>
+</div>
+
+            <ui-view></ui-view>
 
 
 
-{{ test }}
-
+</div>
+</div>
+</div>
 <script src="/javascripts/app.js"></script>
 </body>
 </html>
