@@ -8,11 +8,31 @@
     <script src="/client/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/client/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src ="/client/bower_components/angular/angular.min.js"></script>
+    <script src="/client/bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
     <script src="/client/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/client/bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+
 
 </head>
 <body>
 <div class="container">
+
+
+
+
+
+
+    <nav class="navbar navbar-default pull-right" ng-controller="NavCtrl">
+        <ul class="nav navbar-nav">
+            <li ng-show="isloggedin()"><a>{{ currentUser() }}</a></li>
+            <li ng-show="isloggedin()"><a  ng-click="logOut()">Log Out</a></li>
+            <li><a ui-sref="home">News</a></li>
+            <li ng-hide="isloggedin()"><a href="/#/login">Log In</a></li>
+            <li ng-hide="isloggedin()"><a href="/#/Register">Register</a></li>
+        </ul>
+    </nav>
+
+
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
 

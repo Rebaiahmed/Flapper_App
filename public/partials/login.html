@@ -1,0 +1,25 @@
+
+
+<div ng-show="error" class="alert alert-danger row">
+    <span>{{ error.message }}</span>
+</div>
+
+<form ng-submit="login()"
+      style="margin-top:30px;">
+    <h3>login</h3>
+
+    <div class="form-group">
+        <input type="email"
+               class="form-control"
+               placeholder="email"
+               ng-model="user.email">
+    </div>
+    <div class="form-group">
+        <input type="password"
+               class="form-control"
+               placeholder="Password"
+               ng-model="user.password">
+    </div>
+    <button type="submit" class="btn btn-primary">login</button>
+
+</form>

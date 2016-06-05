@@ -40,6 +40,8 @@ db.Sequelize = Sequelize;
 var Post= db["Post"];
 var Comment = db["Comment"];
 
+var User = db["User"];
+
 
 
 

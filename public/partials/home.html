@@ -34,7 +34,7 @@
 
 </div>
 
-<form ng-submit="addPost(post)" style="margin-top: 30px">
+<form ng-submit="addPost(post)" style="margin-top:30px;" ng-show="isloggedin()">
 
 
     <div class="form-group">
@@ -51,6 +51,8 @@
 
 
 
-
+    <div ng-hide="isloggedin()">
+        <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/Register">Register</a> before you can add a post.</h3>
+    </div>
 
 </div>

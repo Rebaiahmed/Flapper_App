@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var models = require('./models/index');
+
+
 
 var routes = require('./routes/index');
 
@@ -26,6 +29,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+var passport = require('passport');
+require('./config/passport');
+
+app.use(passport.initialize());
 
 
 

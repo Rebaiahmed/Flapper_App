@@ -15,7 +15,7 @@
 
     <div ng-repeat="comment in post.Comments | orderBy:'-upvotes' track by $index">
     <span class="glyphicon glyphicon-thumbs-up"
-          ng-click="incrementUpvotes(comment)"></span>
+          ng-click="incrementUpvotes(comment,post.idPost)"></span>
         {{comment.upvotes}} - by {{comment.author}}
     <span>
       {{comment.body}}
@@ -28,7 +28,7 @@
 
 
     <form ng-submit="addComment(newComment,post.idPost)"
-          style="margin-top:30px;">
+          style="margin-top:30px;" ng-show="isloggedin()">
         <h3>Add a new comment</h3>
 
         <div class="form-group">
@@ -42,5 +42,8 @@
 
 
 
+    <div ng-hide="isloggedin()">
+        <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can comment.</h3>
+    </div>
 
 </div>
