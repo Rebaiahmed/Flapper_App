@@ -13,10 +13,15 @@ var User = models.User ;
 /*
 declare the jwt
  */
-var jwt = require('express-jwt');
 
 
-var auth = jwt({secret :'secret_User',userProperty: 'payload'});
+
+var jwt = require('express-jwt');  // for the protected routes
+
+var auth = jwt({
+  secret: 'secret_User'
+
+});
 
 
 
@@ -39,6 +44,8 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/posts',auth, function(req,res,next){
+
+
 
   Post.findAndCountAll({include :[
     {model :Comment},
@@ -172,12 +179,13 @@ Post.findById(idPost,{
 router.post('/comments/:idPost',auth, function(req,res){
   //get the data
   var body= req.body.body
+  var author = req.body.author;
 
   var Post_idPost = req.params.idPost ;
 
   Comment.create({
     'body':body,
-    'author':'user',
+    'author':author,
 
     'Post_idPost':Post_idPost
   }).then(function(comment){
@@ -233,7 +241,7 @@ router.put('/comments/:idComment',auth, function(req,res){
 })
 
 /*
-router for register
+router for registerauth
  */
 
 

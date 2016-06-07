@@ -136,6 +136,7 @@ app.service('flapperService',['$http','auth',function($http,auth){
     this.getAllPosts = function(){
 
         var token = auth.getToken();
+
         return $http.get('/posts',{headers: {'Authorization': 'Bearer '+token} }
         ).success(function(data){
 
@@ -143,6 +144,9 @@ app.service('flapperService',['$http','auth',function($http,auth){
         }, function(err){
             console.log('err' + err);
         })
+
+
+
     }
 
     /*
@@ -227,9 +231,9 @@ save the token
     auth.saveToken = function(token){
 
 
-        $window.localStorage['flapper-news-token'] = angular.toJson(token);
+        $window.localStorage['flapper-news-token'] = token;
 
-        console.log('after saving it ' + $window.localStorage['flapper-news-token']);
+
 
     }
 
@@ -298,6 +302,9 @@ save the token
     auth.register = function(user){
         return $http.post('/register', user).success(function(data){
             //if success save the data
+
+
+
             var obj = {"err_create": "CREATE_ALREADY_HAVE_ACCOUNT"};
 
             if(JSON.stringify(data) === JSON.stringify(obj))
@@ -319,7 +326,8 @@ save the token
     auth.login = function(user){
         return $http.post('/login', user).success(function(data){
             //if success save the data
-            auth.saveToken(data);
+
+            auth.saveToken(data.token);
         })
     }
 
@@ -520,6 +528,8 @@ app.controller('PostCtrl',['$scope','$stateParams','flapperService','auth',funct
 
 
     $scope.addComment = function(comment,id) {
+
+        comment.author = auth.currentUser();
 
         flapperService.addComment(comment,id).then(function(data){
 
