@@ -1,5 +1,5 @@
 # Flapper_App
-<h1>Simple Mean stacj application let user to sign in or to sign up , and add a new post , comment the post </h1>
+<h1>Simple Mean stack application let user to sign in or to sign up , and add a new post , comment the post </h1>
 <img src="https://cloud.githubusercontent.com/assets/13053759/15843187/e742f060-2c57-11e6-91d7-66f63fff2a49.png">
 <hr>
 <hr>
